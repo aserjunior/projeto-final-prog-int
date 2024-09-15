@@ -1,4 +1,4 @@
-// Dados mockmados para essa primeira versão
+// Dados mockados para essa primeira versão
 const professores = [
     { id: 1, nome: 'João', cpf: '123.456.789-00', data_de_nascimento: '1990-01-01', salario: 1000.00 },
     { id: 2, nome: 'Maria', cpf: '987.654.321-00', data_de_nascimento: '1995-01-01', salario: 2000.00 },
