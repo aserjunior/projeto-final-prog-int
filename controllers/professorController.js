@@ -49,6 +49,24 @@ const professorController = {
         professores.splice(index, 1);
         res.status(204).send();
     },
+
+    listAlunosForProfessor: (req, res) => {
+        const idProfessor = parseInt(req.params.id);
+
+        const disciplinasDoProfessor = disciplinas.filter(d => d.idProfessor == idProfessor);
+
+        let idsAlunos = [];
+        disciplinasDoProfessor.forEach(disciplina => {
+            idsAlunos = [...new Set([...idsAlunos, ...disciplina.idsAlunos])];
+        });
+
+        const alunosDoProfessor = alunos.filter(a => alunosIds.includes(a.id));
+
+        res.json({
+            idProfessor,
+            alunos: alunosDoProfessor.map(aluno => aluno.nome)
+        });
+    }
 };
 
 module.exports = professorController;
