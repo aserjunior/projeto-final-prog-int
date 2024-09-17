@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const professorTable = document.getElementById('professorTable').getElementsByTagName('tbody')[0];
   const professorForm = document.getElementById('professorForm');
+  const searchForm = document.getElementById('searchForm');
+  const searchResults = document.getElementById('searchResults');
+  const toggleButton = document.getElementById('toggleButton');
+  const professorSection = document.getElementById('professorSection');
+  const searchSection = document.getElementById('searchSection');
 
   const apiBaseUrl = 'http://localhost:3000/api';
 
@@ -42,6 +47,54 @@ document.addEventListener('DOMContentLoaded', () => {
       fetchProfessors();
       professorForm.reset();
     });
+  });
+
+  toggleButton.addEventListener('click', () => {
+    if (professorSection.style.display === 'none') {
+      professorSection.style.display = 'block';
+      searchSection.style.display = 'none';
+      toggleButton.innerText = 'Buscar';
+    } else {
+      professorSection.style.display = 'none';
+      searchSection.style.display = 'block';
+      toggleButton.innerText = 'Listar';
+    }
+  });
+
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchNome = document.getElementById('searchNome').value;
+    const searchCPF = document.getElementById('searchCPF').value;
+    const searchDDN = document.getElementById('searchDDN').value;
+    const searchSalario = document.getElementById('searchSalario').value;
+
+    let params = [];
+    if (searchNome) params.push(`nome=${searchNome}`);
+    if (searchCPF) params.push(`cpf=${searchCPF}`);
+    if (searchDDN) params.push(`data_de_nascimento=${searchDDN}`);
+    if (searchSalario) params.push(`salario=${searchSalario}`);
+
+    let url = `${apiBaseUrl}/professores/search?${params.join('&')}`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        searchResults.innerHTML = '';
+        if (data.message === "Nenhum professor encontrado com os parâmetros fornecidos") {
+          searchResults.innerHTML = '<tr><td colspan="5">Nenhum professor encontrado.</td></tr>';
+        } else {
+          searchResults.innerHTML = '<tr><th>ID</th><th>Nome</th><th>CPF</th><th>Data de Nascimento</th><th>Salário</th></tr>';
+          data.forEach(professor => {
+            const row = searchResults.insertRow();
+            row.insertCell(0).innerText = professor.id;
+            row.insertCell(1).innerText = professor.nome;
+            row.insertCell(2).innerText = professor.cpf;
+            row.insertCell(3).innerText = professor.data_de_nascimento;
+            row.insertCell(4).innerText = professor.salario;
+          });
+        }
+      });
   });
 
   window.editProfessor = function (id, button) {

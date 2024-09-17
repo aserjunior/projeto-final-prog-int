@@ -52,6 +52,25 @@ const professorController = {
         res.status(204).send();
     },
 
+    searchProfessor: (req, res) => {
+        const { nome, cpf, data_de_nascimento, salario } = req.query;
+
+        const results = professores.filter(professor => {
+            const nomeMatch = !nome || professor.nome.toLowerCase().includes(nome.toLowerCase());
+            const cpfMatch = !cpf || professor.cpf === cpf;
+            const dataMatch = !data_de_nascimento || professor.data_de_nascimento === data_de_nascimento;
+            const salarioMatch = !salario || professor.salario == salario;
+
+            return nomeMatch && cpfMatch && dataMatch && salarioMatch;
+        });
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: "Nenhum professor encontrado com os parâmetros fornecidos" });
+        }
+
+        res.json(results);
+    },
+
     listAlunosForProfessor: (req, res) => {
         const idProfessor = parseInt(req.params.id);
 

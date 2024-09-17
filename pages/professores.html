@@ -16,27 +16,45 @@
     </nav>
 
     <h1>Professores</h1>
-    <form id="professorForm">
-        <input type="text" id="professorNome" placeholder="Nome" required>
-        <input type="text" id="professorCPF" placeholder="CPF" required>
-        <input type="date" id="professorDDN" placeholder="Data de Nascimento" required>
-        <input type="number" id="professorSalario" placeholder="Salário" required>
-        <button type="submit">Adicionar Professor</button>
-    </form>
+    
+    <button id="toggleButton">Buscar</button>
 
-    <table id="professorTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>Salário</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <section id="professorSection">
+        <form id="professorForm">
+            <input type="text" id="professorNome" placeholder="Nome" required>
+            <input type="text" id="professorCPF" placeholder="CPF" required>
+            <input type="date" id="professorDDN" placeholder="Data de Nascimento" required>
+            <input type="number" id="professorSalario" placeholder="Salário" required>
+            <button type="submit">Adicionar Professor</button>
+        </form>
+
+        <table id="professorTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Salário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="searchSection" style="display: none;">
+        <form id="searchForm">
+            <input type="text" id="searchNome" placeholder="Nome">
+            <input type="text" id="searchCPF" placeholder="CPF">
+            <input type="date" id="searchDDN" placeholder="Data de Nascimento">
+            <input type="number" id="searchSalario" placeholder="Salário">
+            <button type="submit">Buscar</button>
+        </form>
+        <h2>Resultados da Busca</h2>
+        <table id="searchResults">
+        </table>
+    </section>
 
     <script src="./scripts/professores.js"></script>
 </body>

@@ -58,7 +58,7 @@ const disciplinaController = {
         const index = disciplinas.indexOf(disciplina);
         disciplinas.splice(index, 1);
         res.status(204).send();
-    },
+    }
 }
 
 module.exports = disciplinaController;

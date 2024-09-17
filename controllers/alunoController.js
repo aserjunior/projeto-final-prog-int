@@ -49,7 +49,7 @@ const alunoController = {
         res.status(204).send();
     },
 
-    listAlunosForProfessor: (req, res) => {
+    listProfessorForAluno: (req, res) => {
         const idAluno = parseInt(req.params.id);
 
         const disciplinasDoAluno = disciplinas.filter(d => d.idsAlunos.includes(idAluno));
@@ -62,6 +62,25 @@ const alunoController = {
             idAluno,
             professores: professoresDoAluno.map(professor => professor.nome)
         });
+    },
+
+    searchAluno: (req, res) => {
+        const { matricula, nome, data_de_nascimento } = req.query;
+    
+        const results = alunos.filter(aluno => {
+
+            const matriculaMatch = !matricula || aluno.matricula === parseInt(matricula);
+            const nomeMatch = !nome || aluno.nome.toLowerCase().includes(nome.toLowerCase());
+            const dataMatch = !data_de_nascimento || aluno.data_de_nascimento === data_de_nascimento;
+    
+            return matriculaMatch && nomeMatch && dataMatch;
+        });
+    
+        if (results.length === 0) {
+            return res.status(404).json({ message: "Nenhum aluno encontrado com os parâmetros fornecidos" });
+        }
+    
+        res.json(results);
     }
 };
 

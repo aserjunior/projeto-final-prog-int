@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav>
         <ul>
             <li><a href="index.html">Disciplinas</a></li>
@@ -17,25 +16,42 @@
     </nav>
 
     <h1>Alunos</h1>
-    <form id="alunoForm">
-        <input type="text" id="alunoMatricula" placeholder="Matrícula" required>
-        <input type="text" id="alunoNome" placeholder="Nome" required>
-        <input type="date" id="alunoDDN" placeholder="Data de Nascimento" required>
-        <button type="submit">Adicionar Aluno</button>
-    </form>
+    
+    <button id="toggleButton">Buscar</button>
 
-    <table id="alunoTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Matrícula</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <section id="alunoSection">
+        <form id="alunoForm">
+            <input type="text" id="alunoMatricula" placeholder="Matrícula" required>
+            <input type="text" id="alunoNome" placeholder="Nome" required>
+            <input type="date" id="alunoDDN" placeholder="Data de Nascimento" required>
+            <button type="submit">Adicionar Aluno</button>
+        </form>
+
+        <table id="alunoTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="searchSection" style="display: none;">
+        <form id="searchForm">
+            <input type="text" id="searchMatricula" placeholder="Matrícula">
+            <input type="text" id="searchNome" placeholder="Nome">
+            <input type="date" id="searchDDN" placeholder="Data de Nascimento">
+            <button type="submit">Buscar</button>
+        </form>
+        <h2>Resultados da Busca</h2>
+        <table id="searchResults">
+        </table>
+    </section>
 
     <script src="./scripts/alunos.js"></script>
 </body>
