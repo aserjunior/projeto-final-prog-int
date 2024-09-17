@@ -8,6 +8,6 @@ router.post('/professores', professorController.createProfessor);
 router.get('/professores/:id', professorController.getProfessorById);
 router.put('/professores/:id', professorController.updateProfessor);
 router.delete('/professores/:id', professorController.deleteProfessor);
-router.get('/professores/:id/alunos', professorController.listAlunosForProfessor);
+router.get('/professores/:id/alunos', professorController.listAlunosForProfessor); //TODO
 
 module.exports = router;
