@@ -1,8 +1,8 @@
 // Dados mockados para essa primeira versão
 const alunos = [
-    {id: 1, matricula: 1111, nome: 'Aser', data_de_nascimento: '2000-10-30'},
-    {id: 2, matricula: 1112, nome: 'Ebert', data_de_nascimento: '2002-09-13'},
-    {id: 3, matricula: 1113, nome: 'Joana', data_de_nascimento: '1999-01-01'},	
+    {id: 1, matricula: 1111, nome: 'Aser', data_de_nascimento: '2000-10-30' },
+    {id: 2, matricula: 1112, nome: 'Ebert', data_de_nascimento: '2002-09-13' },
+    {id: 3, matricula: 1113, nome: 'Joana', data_de_nascimento: '1999-01-01' }
 ]
 
 const alunoController = {
@@ -48,6 +48,21 @@ const alunoController = {
         alunos.splice(index, 1);
         res.status(204).send();
     },
+
+    listAlunosForProfessor: (req, res) => {
+        const idAluno = parseInt(req.params.id);
+
+        const disciplinasDoAluno = disciplinas.filter(d => d.idsAlunos.includes(idAluno));
+
+        let idsProfessores = disciplinasDoAluno.map(d => d.professorId);
+
+        const professoresDoAluno = professores.filter(p => idsProfessores.includes(p.id));
+
+        res.json({
+            idAluno,
+            professores: professoresDoAluno.map(professor => professor.nome)
+        });
+    }
 };
 
 module.exports = alunoController;
