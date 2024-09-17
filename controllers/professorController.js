@@ -13,8 +13,10 @@ const professorController = {
     createProfessor: (req, res) => {
         const newProfessor = {
             id: professores.length + 1,
-            name: req.body.name,
+            nome: req.body.nome,
             cpf: req.body.cpf,
+            data_de_nascimento: req.body.data_de_nascimento,
+            salario: req.body.salario
         };
         professores.push(newProfessor);
         res.status(201).json(newProfessor);
@@ -33,7 +35,7 @@ const professorController = {
         if (!professor) {
             return res.status(404).json({ message: "Professor não encontrado"});
         }
-        professor.name = req.body.name || professor.name;
+        professor.nome = req.body.nome || professor.nome;
         professor.cpf = req.body.cpf || professor.cpf;
         professor.data_de_nascimento = req.body.data_de_nascimento || professor.data_de_nascimento;
         professor.salario = req.body.salario || professor.salario;
