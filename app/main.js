@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const professorRoutes = require('../routes/professor');
 const alunoRoutes = require('../routes/aluno');
-const disciplinaRoutes = require("../controllers/disciplinaController");
+const disciplinaRoutes = require("../routes/disciplina");
 const port = 3000;
 
 app.use(cors());

@@ -1,8 +1,8 @@
 const disciplinas = [
-    { id: 1, name: 'matematica', idProfessor: 1, idsAlunos: [1,2,3] },
-    { id: 2, name: 'fisica', idProfessor: 1, idsAlunos: [1,3] },
-    { id: 3, name: 'historia', idProfessor: 2, idsAlunos: [1,2] },
-    { id: 4, name: 'portugues', idProfessor: 3, idsAlunos: [2,3]}
+    { id: 1, name: 'Matemática', idProfessor: 1, idsAlunos: [1,2,3] },
+    { id: 2, name: 'Física', idProfessor: 1, idsAlunos: [1,3] },
+    { id: 3, name: 'História', idProfessor: 2, idsAlunos: [1,2] },
+    { id: 4, name: 'Português', idProfessor: 3, idsAlunos: [2,3]}
 ]
 
 const disciplinaController = {

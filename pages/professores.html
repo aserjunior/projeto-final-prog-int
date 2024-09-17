@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Professores</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Disciplinas</a></li>
+            <li><a href="professores.html">Professores</a></li>
+            <li><a href="alunos.html">Alunos</a></li>
+        </ul>
+    </nav>
+
+    <h1>Professores</h1>
+    <form id="professorForm">
+        <input type="text" id="professorNome" placeholder="Nome" required>
+        <input type="text" id="professorCPF" placeholder="CPF" required>
+        <input type="date" id="professorDDN" placeholder="Data de Nascimento" required>
+        <input type="number" id="professorSalario" placeholder="Salário" required>
+        <button type="submit">Adicionar Professor</button>
+    </form>
+
+    <table id="professorTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Salário</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="./scripts/professores.js"></script>
+</body>
+</html>

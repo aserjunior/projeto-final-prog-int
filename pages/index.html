@@ -7,48 +7,39 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <h1>Professores</h1>
-    <form id="professorForm">
-        <input type="text" id="professorNome" placeholder="Nome" required>
-        <input type="text" id="professorCPF" placeholder="CPF" required>
-        <input type="date" id="professorDDN" placeholder="Data de Nascimento" required>
-        <input type="number" id="professorSalario" placeholder="Salário" required>
-        <button type="submit">Adicionar Professor</button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Disciplinas</a></li>
+            <li><a href="professores.html">Professores</a></li>
+            <li><a href="alunos.html">Alunos</a></li>
+        </ul>
+    </nav>
+
+    <h1>Disciplinas</h1>
+    <form id="disciplinaForm">
+        <input type="text" id="disciplinaNome" placeholder="Nome da Disciplina" required>
+        <select id="disciplinaProfessorSelect" required>
+            <option value="">Selecione o Professor</option>
+        </select>
+        <select id="disciplinaAlunosSelect" multiple required>
+            <!-- Opções de alunos serão carregadas aqui -->
+        </select>
+        <button type="submit">Adicionar Disciplina</button>
     </form>
-    <table id="professorTable">
+
+    <table id="disciplinaTable">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>Salário</th>
+                <th>Nome da Disciplina</th>
+                <th>Professor</th>
+                <th>Alunos</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody></tbody>
     </table>
 
-    <h1>Alunos</h1>
-    <form id="alunoForm">
-        <input type="text" id="alunoMatricula" placeholder="Matrícula" required>
-        <input type="text" id="alunoNome" placeholder="Nome" required>
-        <input type="date" id="alunoDDN" placeholder="Data de Nascimento" required>
-        <button type="submit">Adicionar Aluno</button>
-    </form>
-    <table id="alunoTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Matrícula</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/disciplinas.js"></script>
 </body>
 </html>

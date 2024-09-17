@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Alunos</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Disciplinas</a></li>
+            <li><a href="professores.html">Professores</a></li>
+            <li><a href="alunos.html">Alunos</a></li>
+        </ul>
+    </nav>
+
+    <h1>Alunos</h1>
+    <form id="alunoForm">
+        <input type="text" id="alunoMatricula" placeholder="Matrícula" required>
+        <input type="text" id="alunoNome" placeholder="Nome" required>
+        <input type="date" id="alunoDDN" placeholder="Data de Nascimento" required>
+        <button type="submit">Adicionar Aluno</button>
+    </form>
+
+    <table id="alunoTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="./scripts/alunos.js"></script>
+</body>
+</html>
